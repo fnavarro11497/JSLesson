@@ -40,8 +40,7 @@ function playRound(playerChoice, computerSelection){
         return("Its a tie!")
     }
 
-    else if ((playerInput === "rock") && (computerSelection === "Scissors")){
-        
+    else if ((playerInput === "rock") && (computerSelection === "Scissors")){        
         winner = "Player"
         return("Player has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
@@ -56,8 +55,7 @@ function playRound(playerChoice, computerSelection){
         return("Computer has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
-    else if((playerInput === "paper") && (computerSelection === "Rock")) {
-        
+    else if((playerInput === "paper") && (computerSelection === "Rock")) {        
         winner = "Player"
         return("Player has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
@@ -67,8 +65,7 @@ function playRound(playerChoice, computerSelection){
         return("Computer has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
-    else if ((playerInput === "scissors") && (computerSelection === "Paper")) {
-        
+    else if ((playerInput === "scissors") && (computerSelection === "Paper")) {        
         winner = "Player"
         return("Player has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
@@ -88,16 +85,17 @@ function game(){
             computerScore = ++computerScore
             
         } 
+        console.log("Player score is: " + playerScore)
+        console.log("Computer score is: " + computerScore)
     }
 
-    console.log("Player score is: " + playerScore)
-    console.log("Computer score is: " + computerScore)
+  
 }
 
 
 function declareWinner(){
     if (playerScore > computerScore){
-        return("Player wins! Mamala")
+        return("Player wins! Yess!!")
     }
 
     else if (computerScore > playerScore) {
