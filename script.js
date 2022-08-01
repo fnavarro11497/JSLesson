@@ -1,3 +1,7 @@
+playerScore = 0;
+computerScore = 0;
+
+
 // Computer Choice
 
 function getComputerChoice(){
@@ -24,32 +28,86 @@ function playRound(playerChoice, computerSelection){
     playerChoice = prompt("Choose Rock, Paper or Scissors!: ");
     playerInput = playerChoice.toLowerCase();
     computerSelection = getComputerChoice();
+    capitalizedPlayer = (playerInput.charAt(0).toUpperCase() + playerInput.slice(1,(playerInput.length)))
 
-    if ((playerInput === "rock") && (computerSelection === "Scissors")){
-        return("Computer choose: " + computerSelection + ". " + "Rock beats scissors, Player has won!")
+ 
+
+   
+
+
+    if (capitalizedPlayer === computerSelection){
+        winner = "None"
+        return("Its a tie!")
+    }
+
+    else if ((playerInput === "rock") && (computerSelection === "Scissors")){
+        
+        winner = "Player"
+        return("Player has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
     else if ((playerInput === "rock") && (computerSelection === "Paper")) {
-        return("Computer choose: " + computerSelection + ". " + "Paper beats rock, Computer has won!")
+        winner = "Computer"
+        return("Computer has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
     else if ((playerInput === "paper") && (computerSelection === "Scissors")){
-        return("Computer choose: " + computerSelection + ". " + "Scissors beats paper, Computer has won!")
+        winner = "Computer"
+        return("Computer has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
     else if((playerInput === "paper") && (computerSelection === "Rock")) {
-        return("Computer choose: " + computerSelection + ". " + "Paper beats rock, Play has won!")
+        
+        winner = "Player"
+        return("Player has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
     else if ((playerInput === "scissors") && (computerSelection === "Rock")){
-        return("Computer choose: " + computerSelection + ". " + "Rock beats scissors, Computer has won!")
+        winner = "Computer"
+        return("Computer has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
 
     else if ((playerInput === "scissors") && (computerSelection === "Paper")) {
-        return("Computer choose: " + computerSelection + ". " + "Scissors beats paper, Player has won!")
+        
+        winner = "Player"
+        return("Player has won! Player: " + capitalizedPlayer + " - Computer: " + computerSelection + ".")
     }
     
    
 }
-  
-console.log(playRound())
+
+
+function game(){
+    for(let i = 0; i < 5; i++){
+        console.log(playRound())
+        if(winner === "Player"){
+            playerScore = ++playerScore
+            
+        }
+        else if (winner === "Computer"){
+            computerScore = ++computerScore
+            
+        } 
+    }
+
+    console.log("Player score is: " + playerScore)
+    console.log("Computer score is: " + computerScore)
+}
+
+
+function declareWinner(){
+    if (playerScore > computerScore){
+        return("Player wins! Mamala")
+    }
+
+    else if (computerScore > playerScore) {
+        return("Sin tu marido no podes.")}
+    
+    else{
+        return("Tira cola de nuevo, te voy a sacar la camille.")
+    }
+}
+
+
+game()
+console.log(declareWinner())
